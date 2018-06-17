@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'usuario.apps.UsuarioConfig',
     'espaciofisico.apps.EspaciofisicoConfig',
     'academia.apps.AcademiaConfig',
+    'recursos.apps.RecursosConfig',
 ]
 
 MIDDLEWARE = [

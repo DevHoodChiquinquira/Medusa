@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^',include('usuario.urls', namespace='usuario')),
     url(r'^',include('academia.urls', namespace='academia')),
     url(r'^',include('espaciofisico.urls', namespace='espaciofisico')),
+    url(r'^',include('recursos.urls', namespace='recursos')),
 
 ]+  static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
