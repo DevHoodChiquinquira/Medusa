@@ -47,12 +47,21 @@
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Perfil</a>
             <div class="dropdown-menu">
               {% if not user.perfil%}
-              <a class="dropdown-item" href="">Crear</a>
-              {% endif %}
-              <a class="dropdown-item" href="">Visualizar</a>
+              <a class="dropdown-item" href="{% url 'usuario:perfil_insert'%}">Crear</a>
+              {%else%}
+              <a class="dropdown-item" href="{% url 'usuario:perfil_list'%}">Visualizar</a>
             </div>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sede</a>
+            <div class="dropdown-menu">
 
+              <a class="dropdown-item" href="{% url 'espaciofisico:sede_insert' %}">Crear</a>
+
+              <a class="dropdown-item" href="{% url 'espaciofisico:sede_list' %}">Visualizar</a>
+            </div>
+          </li>
+          {% endif %}
 
 
 
@@ -63,12 +72,12 @@
     </nav>
 
     <section class="container mt-5 pt-2">
-      {% block algo %}
+      {% block sistema %}
       {% endblock %}
     </section>
 
 
-    <footer class="container-fluid bg-primary" id="contacto">
+    <footer class="container-fluid bg-primary mt-5 pt-2" id="contacto">
       <div class="row text-white py-4 text-white  text-center justify-content-center ">
                 <div class="col-md-4 " >
                       <h6 class="lead"> Desarrollado <br><br>

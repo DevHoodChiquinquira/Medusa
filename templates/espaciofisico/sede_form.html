@@ -1,0 +1,24 @@
+{% extends "system_index.html" %}
+
+{% block sistema %}
+<form method="post">
+  <a href="{% url 'usuario:system_index' %}"  class="btn btn-primary fa fa-chevron-circle-left fa-1x"></a>
+
+<a href=""><span class="icon fa-arrow-left "></span></a>
+	<header>
+        <center><h2>SEDE </h2></center><hr>
+    </header>
+
+		{% csrf_token %}
+		<div class="form-row ">
+			{%for field in form %}
+				<div class="form-group col-md-4 ">
+					{{ field.errors }}
+					{{ field.label_tag }} <br> {{ field }}
+				</div>
+			{% endfor %}
+		</div>
+
+    <input type="submit" class="btn btn-success pull-right" value="Guardar" />
+</form>
+{%endblock%}

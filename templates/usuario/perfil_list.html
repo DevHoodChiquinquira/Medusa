@@ -1,0 +1,37 @@
+{% extends "system_index.html" %}
+
+{% block sistema %}
+
+
+<table id="example1" class=" mt-3 pt-2 table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombres</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+    	{% for pr in perfiles %}
+    		<tr>
+    			<td>{{pr.numeroDocumento}}</td>
+          <td>{{pr.user.first_name}}</td>
+          <td>{{pr.user.last_name}}</td>
+          <td>{{pr.user.email}}</td>
+    			<td>{{pr.telefono1}}</td>
+          <td class="bg-info" >
+            <a href="{%url 'usuario:perfil_detail' pr.id%}" class="fa fa-eye fa-2x"></a>
+          </td>
+          <td class="bg-warning" >
+            <a href="{%url 'usuario:perfil_edit' pr.id%}"  class="fa fa-pencil-square-o fa-2x"></a>
+          </td>
+    		</tr>
+    	{% endfor %}
+    </tbody>
+</table>
+
+
+{%endblock%}

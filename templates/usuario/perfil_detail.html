@@ -1,0 +1,63 @@
+{% extends "system_index.html" %}
+
+{% block sistema %}
+<a href="{% url 'usuario:perfil_list' %}"  class="btn btn-primary fa fa-chevron-circle-left fa-1x"></a>
+
+<div class="text-center">
+  <h4 class="card-title">Usuario: {{perfil.user.username}}</h4>
+</div>
+<hr>
+
+<div class="form-row">
+        <div class="form-group col-md-4 ">
+          Nombre: <br>{{perfil.user.first_name}}
+        </div>
+        <div class="form-group col-md-4 ">
+          Apellidos:<br>{{perfil.user.last_name}}
+        </div>
+        <div class="form-group col-md-4 ">
+          Apellidos:<br>{{perfil.user.email}}
+        </div>
+
+</div><hr>
+<div class="form-row">
+        <div class="form-group col-md-4 ">
+          Es personal: <br>{{perfil.user.is_staff}}
+        </div>
+        <div class="form-group col-md-4 ">
+          Usuario Activo: <br>{{perfil.user.is_active}}
+        </div>
+        <div class="form-group col-md-4 ">
+          Fecha de creación: <br>{{perfil.user.date_joined}}
+        </div>
+</div><hr>
+
+<div class="form-row">
+        <div class="form-group col-md-4 ">
+          Último acceso: <br>{{perfil.user.last_login}}
+        </div>
+        <div class="form-group col-md-4 ">
+          Documento: <br>{{perfil.numeroDocumento}}
+        </div>
+        <div class="form-group col-md-4 ">
+          Teléfono 1: <br>{{perfil.telefono1}}
+        </div>
+
+</div><hr>
+
+<div class="form-row">
+        <div class="form-group col-md-4 ">
+          Teléfono 2: <br>{{perfil.telefono2}}
+        </div>
+        <div class="form-group col-md-4 ">
+          Dirección: <br>{{perfil.user.direccion}}
+        </div>
+        <div class="form-group col-md-3 ">
+          Ciudad: <br>{{perfil.ciudad}}
+        </div>
+</div><hr>
+
+
+
+
+{%endblock%}
