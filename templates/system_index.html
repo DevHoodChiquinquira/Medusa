@@ -61,6 +61,15 @@
               <a class="dropdown-item" href="{% url 'espaciofisico:sede_list' %}">Visualizar</a>
             </div>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Recurso</a>
+            <div class="dropdown-menu">
+
+              <a class="dropdown-item" href="{% url 'recursos:recursos_insert' %}">Crear</a>
+
+              <a class="dropdown-item" href="{% url 'recursos:recursos_list' %}">Visualizar</a>
+            </div>
+          </li>
           {% endif %}
 
 

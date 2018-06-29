@@ -1,0 +1,80 @@
+{% extends "system_index.html" %}
+
+{% block sistema %}
+<form method="post">
+  <a href="{% url 'usuario:system_index' %}"  class="btn btn-primary fa fa-chevron-circle-left fa-1x"></a>
+
+<a href=""><span class="icon fa-arrow-left "></span></a>
+	<header>
+        <center><h2>RECURSO </h2></center><hr>
+    </header>
+
+
+
+		{% csrf_token %}
+	<div class="form-row form-control border border-danger " id="formRecursoTecnologico">
+        <div class="form-group col-md-6    border border-primary ">
+          {{ field.errors }}
+          {{form.recursoTecnologico.label_tag}}
+          {{form.recursoTecnologico}}
+        </div>
+        <div class="form-group col-md-6    border border-primary ">
+          {{ field.errors }}
+          {{form.disponibilidad.label_tag}}
+          {{form.disponibilidad}}
+        </div>
+        <div class="form-group col-md-6    border border-primary ">
+          {{ field.errors }}
+          {{form.descripcion.label_tag}}<br>
+          {{form.descripcion}}
+        </div>
+        <div class="form-group col-md-6    border border-primary ">
+          {{ field.errors }}
+          {{form.sede.label_tag}}<br>
+          {{form.sede}}
+        </div>
+  </div>
+
+  <div class=" form-row form-control border border-danger " id="formRecursoFisico" style="display: none">
+        <div class="form-group col-md-6    border border-primary ">
+          {{ field.errors }}
+          {{form.marca.label_tag}}<br>
+          {{form.marca}}
+        </div>
+        <div class="form-group col-md-6    border border-primary ">
+          {{ field.errors }}
+          {{form.modelo.label_tag}}<br>
+          {{form.modelo}}
+        </div>
+        <div class="form-group col-md-6    border border-primary ">
+          {{ field.errors }}
+          {{form.numeroSerie.label_tag}}<br>
+          {{form.numeroSerie}}
+        </div>
+        <div class="form-group col-md-6    border border-primary ">
+          {{ field.errors }}
+          {{form.placaInventario.label_tag}}<br>
+          {{form.placaInventario}}
+        </div>
+        <div class="form-group col-md-6    border border-primary ">
+          {{ field.errors }}
+          {{form.caracteristicas.label_tag}}<br>
+          {{form.caracteristicas}}<br>
+          {{form.caracteristicas.help_text}}
+        </div>
+        <div class="form-group col-md-6    border border-primary ">
+          {{ field.errors }}
+          {{form.accesorios.label_tag}}<br>
+          {{form.accesorios}}<br>
+          {{form.accesorios.help_text}}
+        </div>
+        <div class="form-group col-md-6    border border-primary ">
+          {{ field.errors }}
+          {{form.perifericos.label_tag}}<br>
+          {{form.perifericos}}<br>
+          {{form.perifericos.help_text}}
+        </div>
+  </div>
+    <input type="submit" class="btn btn-success pull-right" value="Guardar" />
+</form>
+{%endblock%}

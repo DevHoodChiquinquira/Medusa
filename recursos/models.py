@@ -9,21 +9,26 @@ from academia.models import Grupo
 # Create your models here.
 
 class Recursos(models.Model):
-    recursoTecnologico = models.BooleanField(default = True,
+    recursoTecnologico = models.BooleanField(default = False,
         verbose_name = "Recurso Tecnológico")
     disponibilidad = models.BooleanField(default = False,
         verbose_name = "Disponible")
     estadoBaja = models.BooleanField(default = False,
         verbose_name = "Baja de Activo")
     descripcion = models.CharField(max_length = 45, verbose_name = "Descripción")
-    caracteristicas = models.TextField(blank = True, null = True)
+    caracteristicas = models.TextField(max_length = 1000, blank = True,
+        null = True, help_text='1.000 caracteres')
     marca = models.CharField(max_length = 45, blank = True, null = True)
     modelo = models.CharField(max_length = 45, blank = True, null = True)
     numeroSerie = models.CharField(max_length = 45, blank = True,
         null = True, verbose_name = "Número de Serie")
-    accesorios = models.TextField(blank = True, null = True)
-    perifericos = models.TextField(blank = True, null = True,
-        verbose_name="Periféricos")
+    placaInventario= models.CharField(max_length = 45, blank = True,
+        null = True, verbose_name = "Placa de Inventario")
+    accesorios = models.TextField(max_length = 1000, blank = True,
+        null = True, help_text='1.000 caracteres')
+    perifericos = models.TextField(max_length = 3000, blank = True,
+        null = True, verbose_name="Periféricos",
+        help_text='3.000 caracteres')
     sede = models.ForeignKey(Sede, verbose_name="Sede")
 
     def __unicode__(self):
