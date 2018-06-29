@@ -32,3 +32,11 @@ class RecursoList(LoginRequiredMixin, PermissionRequiredMixin, ListView):
 #esta funcion permite ver solo las reservaciones del usuario
     # def get_queryset(self):
     #     return Perfil.objects.filter(user=self.request.user)
+
+class RecursoUpdate(LoginRequiredMixin,PermissionRequiredMixin, UpdateView):
+    permission_required = ('recursos.add_recursos')
+    model = Recursos
+    success_url = reverse_lazy('recursos:recursos_list')
+    fields = ['recursoTecnologico','disponibilidad','sede',
+              'descripcion',  'marca', 'modelo', 'placaInventario',
+              'numeroSerie', 'caracteristicas','accesorios', 'perifericos' ]
