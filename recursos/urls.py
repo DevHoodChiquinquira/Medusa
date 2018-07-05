@@ -8,6 +8,5 @@ urlpatterns = [
     url(r'^recurso/list$',views.RecursoList.as_view(), name='recursos_list'),
     url(r'^recurso/edit(?P<pk>[0-9]+)/$',views.RecursoUpdate.as_view(),
         name='recursos_edit'),
-    # url(r'^(?P<pk>[0-9]+)/$', views.perfil_detail,
-	# 	name="perfil_detail")
+    url(r'^recursos/(?P<pk>[0-9]+)/$', views.recurso_detail, name="recurso_detail"),
 ]

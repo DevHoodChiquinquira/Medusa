@@ -40,3 +40,13 @@ class RecursoUpdate(LoginRequiredMixin,PermissionRequiredMixin, UpdateView):
     fields = ['recursoTecnologico','disponibilidad','sede',
               'descripcion',  'marca', 'modelo', 'placaInventario',
               'numeroSerie', 'caracteristicas','accesorios', 'perifericos' ]
+
+@login_required()
+def recurso_detail(request, pk):
+    recursos = get_object_or_404(Recursos, pk=pk)
+    template = loader.get_template('recursos/recursos_detail.html')
+    context = {'recursos' : recursos}
+    # print(type(context))
+    # # print(context[recursos])
+    # print(context)
+    return HttpResponse(template.render(context, request))

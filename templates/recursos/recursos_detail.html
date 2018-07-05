@@ -1,0 +1,53 @@
+{% extends "system_index.html" %}
+
+{% block sistema %}
+
+
+
+<div class="text-center">
+  <h4 class="card-title">Recurso: {{recursos.descripcion}}</h4>
+</div>
+<hr>
+
+<div class="form-row">
+        <div class="form-group col-md-4 ">
+          Recurso Tecnológico: <br>{{recursos.recursoTecnologico}}
+        </div>
+        <div class="form-group col-md-4 ">
+          Disponible:<br>{{recursos.disponibilidad}}
+        </div>
+        <div class="form-group col-md-4 ">
+          Sede:<br>{{recursos.sede}}
+        </div>
+
+</div><hr>
+
+
+{%if recursos.recursoTecnologico == True %}
+  <div id="recurso_tecnologico">
+  <div class="form-row">
+          <div class="form-group col-md-4 ">
+            Marca: <br>{{recursos.marca}}
+          </div>
+          <div class="form-group col-md-4 ">
+            Modelo: <br>{{recursos.modelo}}
+          </div>
+          <div class="form-group col-md-4 ">
+            Número de Serie: <br>{{recursos.numeroSerie}}
+          </div>
+  </div><hr>
+  <div class="form-row">
+          <div class="form-group col-md-12 ">
+            Caracteristicas: <br>{{recursos.caracteristicas}}
+          </div><hr>
+          <div class="form-group col-md-12 ">
+            Accesorios: <br>{{recursos.accesorios}}
+          </div><hr>
+          <div class="form-group col-md-12 ">
+            Periféricos: <br>{{recursos.perifericos}}
+          </div><hr>
+  </div><hr>
+</div>
+{%endif%}
+
+{%endblock%}
