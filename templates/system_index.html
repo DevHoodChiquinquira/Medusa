@@ -50,6 +50,7 @@
               <a class="dropdown-item" href="{% url 'usuario:perfil_insert'%}">Crear</a>
               {%else%}
               <a class="dropdown-item" href="{% url 'usuario:perfil_list'%}">Visualizar</a>
+              <a class="dropdown-item" href="{% url 'usuario:programa_academico_insert'%}">Programas Académicos</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -70,6 +71,24 @@
               <a class="dropdown-item" href="{% url 'recursos:recursos_list' %}">Visualizar</a>
             </div>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Facultad</a>
+            <div class="dropdown-menu">
+
+              <a class="dropdown-item" href="{% url 'academia:facultad_insert' %}">Crear</a>
+
+              <a class="dropdown-item" href="{% url 'academia:facultad_list' %}">Visualizar</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Programa Académico</a>
+            <div class="dropdown-menu">
+
+              <a class="dropdown-item" href="{% url 'academia:programa_academico_insert' %}">Crear</a>
+
+              <a class="dropdown-item" href="{% url 'academia:programa_academico_list'%}">Visualizar</a>
+            </div>
+          </li>
           {% endif %}
 
 
@@ -82,7 +101,7 @@
 
     <section class="container mt-5 pt-2">
       <a href="javascript:window.history.back();"  class="btn btn-primary fa fa-chevron-circle-left fa-1x"></a>
-      
+
       {% block sistema %}
       {% endblock %}
     </section>

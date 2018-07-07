@@ -1,0 +1,21 @@
+{% extends "system_index.html" %}
+
+{% block sistema %}
+<form method="post">
+	<header>
+        <center><h2>Facultad </h2></center><hr>
+    </header>
+
+		{% csrf_token %}
+		<div class="form-row ">
+			{%for field in form %}
+				<div class="form-group col-md-4 ">
+					{{ field.errors }}
+					{{ field.label_tag }} <br> {{ field }}
+				</div>
+			{% endfor %}
+		</div>
+
+    <input type="submit" class="btn btn-success pull-right" value="Guardar" />
+</form>
+{%endblock%}

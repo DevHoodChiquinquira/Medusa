@@ -14,13 +14,18 @@ class ProgramaAcademico(models.Model):
     NIVEL_FORMACION = (
         ('posgrado', 'Posgrado'),
         ('pregrado', 'Pregrado'),
+        ('administrativo', 'Administrativo'),
     )
-    codigo = models.CharField(max_length=25, unique=True)
+    estadoActivo = models.BooleanField(default=True, verbose_name = "Activo")
+    codigo = models.CharField(max_length=25, unique=True, verbose_name="Código SNIES")
     descripcion = models.CharField(max_length=50)
     nivelformacion = models.CharField(choices=NIVEL_FORMACION,
-                                      max_length= 50, verbose_name="Nivel de formación")
+        max_length= 50, verbose_name="Nivel de formación")
     sede = models.ForeignKey(Sede, verbose_name= "Sede")
     facultad = models.ForeignKey(Facultad, verbose_name= "Facultad" )
+    registroCalificado = models.TextField(max_length=200,
+        blank=True, null=True, verbose_name="Registro Calificado",
+        help_text='200 caracteres')
 
     def __unicode__(self):
         return u'%s %s %s'%(self.codigo, self.sede, self.descripcion)

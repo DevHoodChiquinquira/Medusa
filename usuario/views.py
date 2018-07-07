@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import Perfil
+from .models import Perfil, ProgramaAcademicoPerfil
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import (
@@ -64,3 +64,13 @@ def perfil_detail(request, pk):
     }
     return HttpResponse(template.render(context, request))
 #-----------------END - Profile------------------
+
+class ProgramaAcademicoPerfilInsert(LoginRequiredMixin, CreateView):
+
+    model = ProgramaAcademicoPerfil
+    success_url = reverse_lazy('academia:perfil_list')
+    fields = ['programaacademico',]
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(ProgramaAcademicoPerfilInsert, self).form_valid(form)

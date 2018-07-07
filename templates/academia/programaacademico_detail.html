@@ -1,0 +1,35 @@
+{% extends "system_index.html" %}
+
+{% block sistema %}
+
+<div class="text-center">
+  <h4 class="card-title">Programa Académico: {{programa.descripcion}}</h4>
+</div>
+<hr>
+
+<div class="form-row">
+        <div class="form-group col-md-4 ">
+          Estado Activo: <br>{{programa.estadoActivo}}
+        </div>
+        <div class="form-group col-md-4 ">
+          Código:<br>{{programa.codigo}}
+        </div>
+        <div class="form-group col-md-4 ">
+          Registro Calificado:<br>{{programa.registroCalificado}}
+        </div>
+
+</div><hr>
+<div class="form-row">
+        <div class="form-group col-md-4 ">
+          Nivel de Formación: <br>{{programa.nivelformacion}}
+        </div>
+        <div class="form-group col-md-4 ">
+          Sede: <br>{{programa.sede}}
+        </div>
+        <div class="form-group col-md-4 ">
+          Facultad: <br>{{programa.facultad}}
+        </div>
+</div><hr>
+
+
+{%endblock%}
