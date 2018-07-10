@@ -17,8 +17,8 @@ class Perfil(models.Model):
     ciudad = models.CharField(max_length=45, verbose_name="Ciudad")
     user = models.OneToOneField(User, verbose_name="Usuario")
 
-    def __unicode__(self):
-        return self.username
+    def __string__(self):
+        return self.user
 
 class ProgramaAcademicoPerfil(models.Model):
     usuario = models.ForeignKey(User, verbose_name="Usuario")

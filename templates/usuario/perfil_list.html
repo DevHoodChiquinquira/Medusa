@@ -2,8 +2,9 @@
 
 {% block sistema %}
 
+{%if  perfiles %}
 
-<table id="example1" class=" mt-3 pt-2 table table-bordered table-striped">
+<table id="example1" class=" mt-3 pt-3 table table-striped table-responsive">
 
     <thead>
         <tr>
@@ -11,7 +12,6 @@
             <th>Nombres</th>
             <th>Apellido</th>
             <th>Email</th>
-            <th>Descripción</th>
         </tr>
     </thead>
     <tbody>
@@ -21,7 +21,6 @@
           <td>{{pr.user.first_name}}</td>
           <td>{{pr.user.last_name}}</td>
           <td>{{pr.user.email}}</td>
-    			<td>{{pr.telefono1}}</td>
           <td class="bg-info" >
             <a href="{%url 'usuario:perfil_detail' pr.id%}" class="fa fa-eye fa-2x"></a>
           </td>
@@ -32,6 +31,32 @@
     	{% endfor %}
     </tbody>
 </table>
+{%endif%}
 
+{%if programas%}
+<h2>Programas a los que esta inscrito</h2>
+<table id="example1" class=" mt-3 pt-3 table table-striped table-responsive">
+
+    <thead>
+        <tr>
+            <th>usuario</th>
+            <th>Descripción</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    	{% for i in programas %}
+    		<tr>
+    			<td>{{i.usuario}}</td>
+          <td>{{i.programaacademico}}</td>
+
+    		</tr>
+    	{% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h5>favor inscribase en un unico programa.</h5>
+<a href="{% url 'usuario:programa_academico_insert' %}"  class="btn btn-success fa fa-plus-square fa-1x"></a>
+{%endif%}
 
 {%endblock%}

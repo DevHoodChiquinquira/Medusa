@@ -15,4 +15,5 @@ urlpatterns = [
 		name="perfil_detail"),
     url(r'^progAcademPerfil/new', views.ProgramaAcademicoPerfilInsert.as_view(),
         name="programa_academico_insert"),
+
 ]
