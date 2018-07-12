@@ -97,6 +97,28 @@
               </div>
             </li>
           {%endif%}
+          {% if perms.academia.add_asignatura%}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Asignatura</a>
+              <div class="dropdown-menu">
+
+                <a class="dropdown-item" href="{% url 'academia:asignatura_insert' %}">Crear</a>
+
+                <a class="dropdown-item" href="{% url 'academia:asignatura_list' %}">Visualizar</a>
+              </div>
+            </li>
+          {%endif%}
+          {% if perms.academia.add_grupo%}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Grupo</a>
+              <div class="dropdown-menu">
+
+                <a class="dropdown-item" href="{% url 'academia:asignatura_insert' %}">Crear</a>
+
+                <a class="dropdown-item" href="{% url 'academia:asignatura_list' %}">Visualizar</a>
+              </div>
+            </li>
+          {%endif%}
           {% endif %}
 
 

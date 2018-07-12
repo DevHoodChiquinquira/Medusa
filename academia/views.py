@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from .models import (Facultad, ProgramaAcademico)
+from .models import (Facultad, ProgramaAcademico, Asignatura)
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import (
@@ -61,3 +61,22 @@ def programa_academico_detail(request, pk):
     template = loader.get_template('academia/programaacademico_detail.html')
     context = {'programa' : programa}
     return HttpResponse(template.render(context, request))
+
+class AsignaturaInsert(LoginRequiredMixin,
+                       PermissionRequiredMixin, CreateView):
+    permission_required = ('academia:add_asignatura')
+    model = Asignatura
+    success_url = reverse_lazy('academia:asignatura_list')
+    fields = ['estado_activo', 'descripcion', 'programaacademico']
+
+class AsignaturaList(LoginRequiredMixin, PermissionRequiredMixin, ListView):
+    permission_required = ('academia:add_asignatura')
+    model = Asignatura
+    context_object_name = 'asignaturas'
+
+class AsignaturaUpdate(LoginRequiredMixin,
+                       PermissionRequiredMixin, UpdateView):
+    permission_required = ('academia:add_asignatura')
+    model = Asignatura
+    success_url = reverse_lazy('academia:asignatura_list')
+    fields = ['estado_activo', 'descripcion', 'programaacademico']

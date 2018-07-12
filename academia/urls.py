@@ -16,5 +16,10 @@ urlpatterns = [
         views.ProgramaAcademicoUpdate.as_view(),name='programa_academico_edit'),
     url(r'^progAcadem/detalle/(?P<pk>[0-9]+)/$',
         views.programa_academico_detail, name="programaacademico_detail"),
-
+    url(r'^asignatura/new', views.AsignaturaInsert.as_view(),
+        name="asignatura_insert"),
+    url(r'^asignatura/list$',views.AsignaturaList.as_view(),
+        name='asignatura_list'),
+    url(r'^asignatura/edit(?P<pk>[0-9]+)/$',
+        views.AsignaturaUpdate.as_view(),name='asignatura_edit'),
 ]
