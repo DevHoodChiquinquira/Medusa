@@ -22,4 +22,8 @@ urlpatterns = [
         name='asignatura_list'),
     url(r'^asignatura/edit(?P<pk>[0-9]+)/$',
         views.AsignaturaUpdate.as_view(),name='asignatura_edit'),
+    url(r'^grupo/new', views.GrupoInsert.as_view(),
+        name="grupo_insert"),
+    url(r'^grupoAsignatura/new$', views.grupoInsert, name="grupo_asignatura_insert"),
+    url(r'^GrupoAsignatura/serachAsignatura$', views.serachAsignatura, name='search_asignatura'),
 ]

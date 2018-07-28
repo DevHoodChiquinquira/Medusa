@@ -1,0 +1,126 @@
+{% extends "system_index.html" %}
+{%load staticfiles%}
+{% block sistema %}
+
+<p class="text-center">
+	En este modulo crearas el grupo y lo asociaras a una asignatura
+</p>
+<div class="card text-center">
+
+
+{% if user.is_authenticated %}
+    {% if messages %}{% for message in messages %}
+      <div class="alert alert-warning alert-dismissable">
+      <i class="fa fa-info"></i>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <b>Ale<div class="card text-center">
+rt!</b> {{ message }}
+      </div>
+  {% endfor %}{% endif %}{% endif %}
+
+<div class="form-row">
+        <div class="form-group col-md-6 ">
+          <div class="card font-weight-bold" style="width: 20rem;">
+            <div class="card-header text-center font-weight-bold">
+              GRUPO
+            </div>
+            <ul class="list-group list-group-flush ">
+
+              <li class="list-group-item">Descripción:  <input type="text" name="" value="" placeholder="Chiq-nombre-2018-1" required="required" class="form-control"></li>
+              <li class="list-group-item">Estado Activo: <input type="checkbox" name="" value=""></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="form-group col-md-6 ">
+          <div class="card font-weight-bold" style="width: 20rem;">
+            <div class="card-header text-center font-weight-bold">
+              ASIGNATURA
+            </div>
+            <ul class="list-group list-group-flush ">
+              <li class="list-group-item">
+              </li>
+            </ul>
+            <div class="card-footer text-center">
+              <button type="button" id="btnBuscar" class="btn btn-success" data-toggle="modal" data-target="#ProductoModal">
+                Buscar
+              </button>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+<!-- producto modal-->
+<div class="modal fade" id="ProductoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Busqueda Asignatura</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="GET" action="{% url 'academia:search_asignatura'%}"  id="btnAsignaturaBuscar">
+          <div class="form-row">
+            <div class="form-group col-md-10 ">
+              <label for="inputAddress">Asignatura</label>
+              <input type="text" name="NombreAsignatura" id="txtNombreAsignatura" class="form-control"  placeholder="Nombre asignatura" autofocus required>
+            </div>
+            <div class="form-group col-md-2 ">
+              <label for="inputAddress"></label>
+              <button type="submit"  class="btn btn-success fa fa-search"></button>
+            </div>
+          </form>
+      </div>
+      <div class="form-group col-md-12 " id="asignatura_list">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" name="CerrarAsignatura" id="btnCerrarAsignatura" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" id="btnAsignaturaSeleccionar" disabled=True class="btn btn-success">Seleccionar</button>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+<!--producto fin modal-->
+
+
+
+<div class="card text-center">
+  <div class="card-header">
+    <h4> Asociacion </h4>
+  </div>
+  <div class="card-body">
+		<table class= "table table-striped table-responsive" id="tb-detalle">
+		  <thead class="">
+		    <tr class="">
+		      <th scope="col">descripcion</th>
+		      <th scope="col">estado_activo</th>
+		      <th scope="col">programaacademico</th>
+
+		    </tr>
+		  </thead>
+		  <tbody>
+		  </tbody>
+		</table>
+		<!-- Tabla productos -->
+	</div>
+	</div>
+
+<!--Enviar-->
+<form action="/factura/venta" method="post" onsubmit="onEnviar()">
+    {% csrf_token %}
+    <input id="proceso" name="proceso" type="hidden" />
+    <button class="btn btn-success pull-right" name="btnGuardar"id="btnGuardar" disabled=True><i class="fa fa-save"></i> Crear</button>
+</form>
+<!--Fin Enviar -->
+
+{%endblock%}
+
+
+{%block js%}
+<script type="text/javascript" src="{% static "js/academia/createGrupo.js" %}"></script>
+{%endblock%}
